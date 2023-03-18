@@ -22,7 +22,6 @@ export default{
 <style lang="scss" scoped>
 $background-image: linear-gradient(to top,#1abc9c 0%, #2c3e50 100%);
 .banner {
-
   padding: 100px 0;
   display: flex;
   justify-content: center;
@@ -40,6 +39,7 @@ $background-image: linear-gradient(to top,#1abc9c 0%, #2c3e50 100%);
       line-height: $h;
       border-radius: $h/2;
       padding: 0 8px;
+      box-shadow: 0 0 16px #ddd;
     }
   }
 }
