@@ -20,7 +20,7 @@ import {Button, Tabs, Switch, Dialog} from "todoui"
   </div>
 </template>
 <script>
-import {Button, Tabs, Switch, Dialog} from "list-ui"
+import {Button, Tabs, Switch, Dialog} from "todoui"
 export default {
   components: {Button}
 }
