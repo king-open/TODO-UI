@@ -8,8 +8,11 @@ import TabsDemo from "./components/TabsDemo.vue";
 
 import { h } from 'vue';
 import Markdown from './components/Markdown.vue';
+import intro from './markdown/intro.md'
+import getStarted from './markdown/get-started.md'
+import install from './markdown/install.md'
 const history = createWebHashHistory();
-const md = filename => h(Markdown, { path: `../markdown/${filename}.md`, key: filename })
+const md = string => h(Markdown, { content: string, key: string })
 export const router = createRouter({
   history: history,
   routes: [
@@ -18,10 +21,10 @@ export const router = createRouter({
       path: "/doc",
       component: Doc,
       children: [
-        { path: "", redirect:'/doc/intro' },
-        { path: "intro", component: md('intro') },
-        { path: "get-started", component: md('get-started') },
-        { path: "install", component: md('install') },
+        { path: "", redirect: '/doc/intro' },
+        { path: "intro", component: md(intro) },
+        { path: "get-started", component: md(getStarted) },
+        { path: "install", component: md(install) },
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },
@@ -31,5 +34,4 @@ export const router = createRouter({
   ],
 });
 router.afterEach(() => {
-  console.log("路由切换了");
 });
