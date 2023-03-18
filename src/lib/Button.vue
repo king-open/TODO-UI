@@ -1,21 +1,32 @@
 <template>
-  <button class="l-button":class="{[`theme-${theme}`]: theme}">
+  <button class="l-button":class="classes">
     <slot />
   </button>
 </template>
 
 <script lang="ts">
+import {computed} from 'vue'
 export default{
   inheritAttrs: false,
   props: {
     theme:{
       type:String,
       default:'button',
+    },
+    size:{
+      type:String,
+      default:'normal',
     }
   },
-  setup(props, context) {
-    const { size, ...rest } = context.attrs;
-    return { size, rest };
+  setup(props) {
+    const { theme, size } = props;
+    const classes = computed(() => {
+      return {
+        [`l-theme-${theme}`]: theme,
+        [`l-size-${size}`]: size,
+      };
+    });
+    return { classes };
   },
 }
 </script>
