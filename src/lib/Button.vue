@@ -1,48 +1,55 @@
 <template>
-  <button class="l-button" :class="classes">
+  <button class="l-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="l-loadingIndicator"></span>
     <slot />
   </button>
 </template>
-
 <script lang="ts">
-import {computed} from 'vue'
-export default{
-  inheritAttrs: false,
+import { computed } from "vue";
+export default {
   props: {
-    theme:{
-      type:String,
-      default:'button',
+    theme: {
+      type: String,
+      default: "button",
     },
-    size:{
-      type:String,
-      default:'normal',
+    size: {
+      type: String,
+      default: "normal",
     },
     level: {
       type: String,
       default: "normal",
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    }
   },
   setup(props) {
-    const { theme, size ,level} = props;
+    const { theme, size, level } = props;
     const classes = computed(() => {
       return {
         [`l-theme-${theme}`]: theme,
         [`l-size-${size}`]: size,
-        [`l-level-${level}`]:level,
+        [`l-level-${level}`]: level,
       };
     });
     return { classes };
   },
-}
+};
 </script>
-
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
-$red:red;
+$red: red;
+$grey: grey;
 .l-button {
   box-sizing: border-box;
   height: $h;
@@ -57,7 +64,7 @@ $red:red;
   border: 1px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
-  background: background 250ms;
+  transition: background 250ms;
   & + & {
     margin-left: 8px;
   }
@@ -72,20 +79,22 @@ $red:red;
   &::-moz-focus-inner {
     border: 0;
   }
-  &.l-theme-link{
+  &.l-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
-    &:hover,&:focus{
+    &:hover,
+    &:focus {
       color: lighten($blue, 10%);
     }
   }
-  &.l-theme-text{
+  &.l-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
-    &:hover,&:focus{
-      background: darken(white, 5%);;
+    &:hover,
+    &:focus {
+      background: darken(white, 5%);
     }
   }
   &.l-size-big {
@@ -145,5 +154,35 @@ $red:red;
       }
     }
   }
+  &.l-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.l-theme-link, &.l-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+    }
+  }
+  > .l-loadingIndicator{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px; 
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: l-spin 1s infinite linear;
+  }
+}
+@keyframes l-spin {
+  0%{transform: rotate(0deg)} 
+  100%{transform: rotate(360deg)} 
 }
 </style>
