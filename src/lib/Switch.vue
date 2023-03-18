@@ -1,14 +1,21 @@
 <template>
   <div>
-    <button>
+    <button @click="toggle" :class="{checked}">
       <span></span>
     </button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { ref } from 'vue'
   export default {
-    
+    setup(){
+      const checked = ref(false)
+      const toggle = ()=> {
+        checked.value = !checked.value
+      }
+      return {checked,toggle}
+    }
   }
 </script>
 
@@ -19,7 +26,7 @@ $h2: $h - 4px;
     height: $h;
     width: $h*2;
     border: none;
-    background: #6495ed;
+    background: gray;
     border-radius: $h/2;
     position: relative;
   }
@@ -32,7 +39,10 @@ $h2: $h - 4px;
     background:white;
     border-radius: $h2 / 2;
   }
-  button:hover > span {
+  button.checked{
+    background: #6495ed;
+  }
+  button.checked > span {
     left: calc(100% - #{$h2} - 2px);
   }
 </style>
