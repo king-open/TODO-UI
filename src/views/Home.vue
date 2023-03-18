@@ -20,13 +20,15 @@ export default{
 </script>
 
 <style lang="scss" scoped>
+$background-image: linear-gradient(to top,#1abc9c 0%, #2c3e50 100%);
 .banner {
+
   padding: 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: lightgreen;
+  background: $background-image;
   > .actions{
     padding: 8px 0;
     a {
