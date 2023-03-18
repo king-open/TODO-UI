@@ -1,5 +1,5 @@
 <template>
-  <button class="l-button":class="classes">
+  <button class="l-button" :class="classes">
     <slot />
   </button>
 </template>
@@ -80,6 +80,16 @@ $radius: 4px;
     &:hover,&:focus{
       background: darken(white, 5%);;
     }
+  }
+  &.l-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.l-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
   }
 }
 </style>
