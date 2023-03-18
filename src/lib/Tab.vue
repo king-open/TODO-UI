@@ -6,8 +6,6 @@
 
 <script lang="ts">
 export default {
-  export default {
-  name: 'lTab'
-}
+  name: 'LTab'
 }
 </script>
