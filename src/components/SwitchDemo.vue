@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Switch v-mode:value="y" />
+    <Switch v-mode:value="bool" />
   </div>
 </template>
 
@@ -11,8 +11,8 @@ import Switch from '../lib/Switch.vue'
 export default{
   components:{Switch},
   setup(){
-    const y = ref(false)
-    return {y}
+    const bool = ref(false)
+    return {bool}
   }
 }
 </script>
