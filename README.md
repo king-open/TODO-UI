@@ -18,4 +18,4 @@ TODO UI 项目是我为进阶学习 Vue3 同时探索组件库设计开发思路
 
 ## 📖 开源协议
 
-版权 (c) 2022-至今 归 Gy-coder 所有. 详情请阅 [LICENSE](https://github.com/king-open/TODO-UI/blob/main/LICENSE)
+版权 (c) 2023-至今 归 Gy-coder 所有. 详情请阅 [LICENSE](https://github.com/king-open/TODO-UI/blob/main/LICENSE)
