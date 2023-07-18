@@ -1,22 +1,25 @@
 {
   "name": "todoui",
   "version": "0.0.2",
-  "files": ["dist/lib/*"],
+  "files": [
+    "dist/lib/*"
+  ],
   "main": "dist/lib/list.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "vue": "^3.0.0-rc.1"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0-rc.1",
-    "github-markdown-css": "^4.0.0",
-    "marked": "^1.1.1",
-    "prismjs": "^1.21.0",
-    "sass": "^1.26.10",
-    "vite": "^1.0.0-rc.1",
-    "vue-router": "^4.0.0-beta.3"
+    "@iconify-json/system-uicons": "1.1.8",
+    "@vue/compiler-sfc": "3.3.4",
+    "github-markdown-css": "4.0.0",
+    "marked": "1.1.1",
+    "prismjs": "1.29.0",
+    "sass": "1.63.6",
+    "vite": "1.0.0-rc.1",
+    "vue-router": "4.2.4"
   }
 }

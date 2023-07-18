@@ -10,7 +10,11 @@ import {baseParse} from '@vue/compiler-core'
 export default {
   base: './',
   assetsDir: 'assets',
-  plugins: [md()],
+  plugins: [
+    md(),
+    Unocss
+  
+  ],
   vueCustomBlockTransforms: {
     demo: (options) => {
       const { code, path } = options
